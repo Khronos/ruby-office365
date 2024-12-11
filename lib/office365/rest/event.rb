@@ -16,10 +16,12 @@ module Office365
       def events(args = {})
         if args[:startdatetime] && args[:enddatetime]
           wrap_results(
-            kclass: Models::Event,
-            base_uri: CALENDARVIEW_URL,
-            startdatetime: args[:startdatetime],
-            enddatetime: args[:enddatetime]
+            args.merge(
+              kclass: Models::Event,
+              base_uri: CALENDARVIEW_URL,
+              startdatetime: args[:startdatetime],
+              enddatetime: args[:enddatetime]
+            )
           )
         else
           wrap_results(args.merge(kclass: Models::Event, base_uri: BASE_URI))

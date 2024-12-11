@@ -1,5 +1,9 @@
 # Office365 Library Changelog
 
+## [0.2.1] - (2024-12-11)
+
+- FIX events: Manage correctly next_link
+
 ## [0.2.0] - (2024-11-14)
 
 - New feature on events: Allows users to get events by expected dates
