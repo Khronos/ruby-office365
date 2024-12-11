@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-office365 (0.2.0)
+    ruby-office365 (0.2.1)
       faraday
       faraday_middleware
 
