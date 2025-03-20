@@ -2,6 +2,7 @@
 
 require_relative "./user"
 require_relative "./mailbox"
+require_relative "./mailfolder"
 require_relative "./calendar"
 require_relative "./contact"
 require_relative "./event"
@@ -13,6 +14,7 @@ module Office365
     module API
       include Office365::REST::User
       include Office365::REST::Mailbox
+      include Office365::REST::Mailfolder
       include Office365::REST::Calendar
       include Office365::REST::Event
       include Office365::REST::Contact

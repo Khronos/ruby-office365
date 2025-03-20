@@ -19,6 +19,27 @@ module Office365
 
         wrap_results(kclass: Models::Event, base_uri: [BASE_URI, identifier].join("/"), identifier: identifier)
       end
+
+      def create_event(args = {})
+        raise ArgumentError, "Subject must be provided" if args[:subject].blank?
+        raise ArgumentError, "Start must be provided" if args[:start].blank?
+        raise ArgumentError, "End must be provided" if args[:end].blank?
+        raise ArgumentError, "Attendees must be provided" if args[:attendees].blank?
+
+        wrap_create(args.merge(kclass: Models::Event, base_uri: BASE_URI))
+      end
+
+      def update_event(args = {})
+        raise ArgumentError, "Id must be provided" if args[:id].blank?
+
+        wrap_update(args.merge(kclass: Models::Event, base_uri: BASE_URI))
+      end
+
+      def delete_event(args = {})
+        raise ArgumentError, "ID must be provided" if args[:id].blank?
+
+        wrap_delete(args.merge(base_uri: BASE_URI))
+      end
     end
   end
 end

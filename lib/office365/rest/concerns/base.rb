@@ -27,6 +27,35 @@ module Office365
           Request.new(access_token, debug: debug).get(request_uri)
         end
 
+        def wrap_create(args)
+          kclass = args.delete(:kclass)
+          base_uri = args.delete(:base_uri)
+          request_uri = ["/", Office365::API_VERSION, base_uri].join
+
+          response = Request.new(access_token, debug: debug).post(request_uri, args.merge(json_header: true))
+
+          { results: [kclass.new(response)].flatten }
+        end
+
+        def wrap_update(args)
+          kclass = args.delete(:kclass)
+          base_uri = args.delete(:base_uri)
+          id = args.delete(:id)
+          request_uri = ["/", Office365::API_VERSION, base_uri, "/", id].join
+
+          response = Request.new(access_token, debug: debug).patch(request_uri, args.merge(json_header: true))
+
+          { results: [kclass.new(response)].flatten }
+        end
+
+        def wrap_delete(args)
+          base_uri = args.delete(:base_uri)
+          id = args.delete(:id)
+
+          request_uri = ["/", Office365::API_VERSION, base_uri, "/", id].join
+          Request.new(access_token, debug: debug).delete(request_uri, args.merge(json_header: true))
+        end
+
         # https://learn.microsoft.com/en-us/graph/query-parameters?view=graph-rest-1.0
         # OData system query options
         # Click the examples to try them in [Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer)

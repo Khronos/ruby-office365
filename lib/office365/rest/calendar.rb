@@ -19,6 +19,10 @@ module Office365
                                                                                      (args.has_key?(:StartDateTime) && args.has_key?(:EndDateTime))
         wrap_results(args.merge(kclass: Models::Event, base_uri: ['/me/calendar', 'calendarView'].join("/")))
       end
+
+      # method: post/patch/delete is required for create/update/delete
+      def calendar(args = {})
+      end
     end
   end
 end

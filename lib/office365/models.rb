@@ -4,6 +4,7 @@ module Office365
   module Models
     autoload :Base,               "office365/models/concerns/base"
     autoload :Directory,          "office365/models/directory"
+    autoload :Mailfolder,         "office365/models/mailfolder"
     autoload :Mailbox,            "office365/models/mailbox"
     autoload :Calendar,           "office365/models/calendar"
     autoload :User,               "office365/models/user"
