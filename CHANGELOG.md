@@ -1,9 +1,18 @@
 # Office365 Library Changelog
 
+## [0.2.1] - (2024-12-11)
+
+- FIX events: Manage correctly next_link
+
+## [0.2.0] - (2024-11-14)
+
+- New feature on events: Allows users to get events by expected dates
+  - get events for the next week `client.events({ startdatetime: "2024-11-14T00:00:00.000Z", enddatetime: "2024-11-21T00:00:00.000Z" })`
+
 ## [0.1.9] - (2024-08-08)
 
 - able to get event by identifier `client.event('xxxxxxxx')`
- 
+
 ## [0.1.7] - (2022-11-11)
 
 - Improve performance: supports select and sort in REST APIs
@@ -41,7 +50,7 @@
   - get profile `client.me`
   - get mailbox `client.messages`
   - get calenders `client.calenders`
- 
+
 ## [0.1.0] - (2022-10-19)
 
 - Project setup and push to rubugems
